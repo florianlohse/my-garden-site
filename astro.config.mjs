@@ -1,9 +1,9 @@
 import { defineConfig } from "astro/config";
-import remarkBreaks from "remark-breaks"; // <--- Add this line
+import remarkBreaks from "remark-breaks";
 
 export default defineConfig({
-  // ... your other config
+  // Your existing site config (integrations, etc.) remains here
   markdown: {
-    remarkPlugins: [remarkBreaks], // <--- Add this line
+    remarkPlugins: [remarkBreaks],
   },
 });
