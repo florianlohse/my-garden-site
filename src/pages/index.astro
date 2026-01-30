@@ -1,21 +1,15 @@
 ---
 import { getCollection } from 'astro:content';
-
-// This fetches the notes we defined in the config above
 const allNotes = await getCollection('notes');
 ---
-
 <html>
-  <head>
-    <title>Digital Garden PoC</title>
-  </head>
+  <head><title>My Garden</title></head>
   <body>
     <h1>🌱 My Digital Garden</h1>
-    <p>If you see list items below, the connection is successful:</p>
     <ul>
       {allNotes.map(note => (
         <li>
-          <strong>{note.id}</strong>
+          <a href={`/my-garden-site/${note.id}/`}>{note.id}</a>
         </li>
       ))}
     </ul>
