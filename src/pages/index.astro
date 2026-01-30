@@ -1,17 +1,23 @@
 ---
+import { getCollection } from 'astro:content';
 
+// This fetches the notes we defined in the config above
+const allNotes = await getCollection('notes');
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html>
+  <head>
+    <title>Digital Garden PoC</title>
+  </head>
+  <body>
+    <h1>🌱 My Digital Garden</h1>
+    <p>If you see list items below, the connection is successful:</p>
+    <ul>
+      {allNotes.map(note => (
+        <li>
+          <strong>{note.id}</strong>
+        </li>
+      ))}
+    </ul>
+  </body>
 </html>
